@@ -1,4 +1,4 @@
-const container = document.querySelector('.music__container');
+const musicContainer = document.querySelector('.music__container');
 const playBtn = document.querySelector('.play');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
@@ -24,7 +24,7 @@ function loadSong(song){
 
 // Play song
 function playSong(){
-    container.classList.add('play');
+    musicContainer.classList.add('play');
     playBtn.querySelector('span.fas').classList.remove('fa-play');
     playBtn.querySelector('span.fas').classList.add('fa-pause');
 
@@ -32,7 +32,7 @@ function playSong(){
 }
 
 function pauseSong(){
-    container.classList.remove('play');
+    musicContainer.classList.remove('play');
     playBtn.querySelector('span.fas').classList.add('fa-play');
     playBtn.querySelector('span.fas').classList.remove('fa-pause');
 
@@ -75,11 +75,11 @@ function setProgress(e){
     const clickX = e.offsetX;
     const duration = audio.duration;
 
-    audio.currentTime = (clickX / width) * duration;
+   audio.currentTime = (clickX / width) * duration;
 }
 
 playBtn.addEventListener('click', () =>{
-    const isPlaying = container.classList.contains('play');
+    const isPlaying = musicContainer.classList.contains('play');
 
     if(isPlaying){
         pauseSong();
